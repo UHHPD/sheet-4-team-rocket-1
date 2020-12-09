@@ -31,6 +31,13 @@ Data::Data(const std::string& filename) {
     file >> entries;
     m_data.push_back(entries);
   }
+  
+  // read in data from file: 4th line experimental uncertainty
+  for (int i = 0; i < size; ++i) {
+    double errors;
+    file >> errors;
+    m_errors.push_back(errors);
+  }
 
   // done! close the file
   file.close();
